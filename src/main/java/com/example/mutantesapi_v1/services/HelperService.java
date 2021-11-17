@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class HelperService {
 
     // Devuelve una matriz rotada 90 grados con respecto a la original
-    static public String[] rotateMatrix (String[] dna){
+    public String[] rotateMatrix (String[] dna){
 
         String[] columns = new String[dna.length];
         Arrays.fill(columns, "");
@@ -27,7 +27,7 @@ public class HelperService {
 
     //Devuelve las diagonales descendientes de una matriz
     //Primero se llama con la matriz normal y luego rotada, para encontrar todas las diagonales
-    static public String[] findDiagonals (String[] dna){
+    public String[] findDiagonals (String[] dna){
 
         // Se declara un array lleno de cadenas vacías
         String[] diagonals = new String[dna.length*2];
@@ -66,7 +66,7 @@ public class HelperService {
             c++;
         }
 
-        // Filtramos aquellas cuyo tamaño sea menor a tres
+        // Filtramos aquellas cuyo tamaño sea menor a cuatro
         diagonals = Arrays.stream(diagonals).filter(x -> (x.length() > 3)).toArray(String[]::new);
 
         return diagonals;

@@ -1,14 +1,17 @@
 # Desafio MercadoLibre
 Agustín Peruzzi y Sandra Chilayo
 
+## Repo
+https://github.com/agustin-bit/mutantes-api-tpa
+
+## Deploy
+https://mutantes-api-tpa.herokuapp.com
+
 ## Tecnologías
 - Java 11
 - Spring Boot
 - Redis
 - Heroku
-
-## Deploy
-https://mutantes-api-tpa.herokuapp.com
 
 ## Ejemplo de uso
 

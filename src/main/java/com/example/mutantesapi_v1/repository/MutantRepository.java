@@ -21,6 +21,7 @@ public class MutantRepository {
 
     private static JedisPool pool;
 
+    // Busca un adn particular en redis para ver si ya se registró
     public String searchHistory(String key) {
         try (Jedis jedis = pool.getResource()){
             String result = jedis.get(key);
@@ -28,23 +29,26 @@ public class MutantRepository {
         }
     }
 
+    // Guarda el resultado a redis
     public void saveResult (String key, String value){
         try (Jedis jedis = pool.getResource()){
             jedis.set(key, value);
             if (value == "1") {
-                jedis.incr("count_human_dna");
+                jedis.incr("count_mutant_dna"); //suma un mutante
             } else {
-                jedis.incr("count_mutant_dna");
+                jedis.incr("count_human_dna"); //suma un humano
             }
         }
     }
 
+    // Getter values genérico
     public String getValue (String key) {
         try (Jedis jedis = pool.getResource()){
             return jedis.get(key);
         }
     }
 
+    // Genera un pool statico
     private static JedisPool getPool() {
         try {
             TrustManager bogusTrustManager = new X509TrustManager() {

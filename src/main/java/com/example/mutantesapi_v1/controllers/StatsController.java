@@ -17,7 +17,7 @@ public class StatsController {
     protected StatsService _servicio = new StatsService();
 
     @PostMapping("")
-    public ResponseEntity<?> getStats(@RequestBody DNA dna) {
+    public ResponseEntity<?> getStats() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body( _servicio.getStats());
         }
